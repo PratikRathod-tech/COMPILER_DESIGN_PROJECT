@@ -1,0 +1,5 @@
+raduis = 10
+
+area = pi * radius^2
+
+show area

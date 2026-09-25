@@ -1,0 +1,7 @@
+actual = [3, -0.5, 2, 7]
+predicted = [2.5, 0, 2, 8]
+
+show mae(actual, predicted)
+show mse(actual, predicted)
+show rmse(actual, predicted)
+show r2(actual, predicted)

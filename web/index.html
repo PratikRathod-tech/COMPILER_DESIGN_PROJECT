@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ML Math Compiler - Educational Pipeline</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Top Half: Editor -->
+    <header class="app-header">
+      <div class="logo">
+        <span class="badge">ML</span> Math Compiler
+      </div>
+      <div class="presets">
+        <span>Presets:</span>
+        <button type="button" class="preset-btn" data-preset="matrix">2D Matrix</button>
+        <button type="button" class="preset-btn" data-preset="linear">Linear Eq</button>
+        <button type="button" class="preset-btn" data-preset="linear_system">2x2 System</button>
+        <button type="button" class="preset-btn" data-preset="metrics">ML Metrics</button>
+      </div>
+    </header>
+
+    <main class="split-view">
+      <!-- Section 1: Input Editor -->
+      <section class="section editor-section">
+        <div class="section-header">
+          <span class="title">INPUT EDITOR</span>
+          <span class="hint">Write ML Math Language here</span>
+        </div>
+        <textarea id="editor" spellcheck="false" placeholder="Write ML Math Language here..."></textarea>
+        <div class="toolbar">
+          <div class="actions-left">
+            <button id="runBtn" class="btn btn-primary">Run</button>
+            <button id="clearBtn" class="btn btn-secondary">Clear</button>
+            <button id="workflowBtn" class="btn btn-workflow">Workflow</button>
+          </div>
+          <div id="statusIndicator" class="status-indicator">Ready</div>
+        </div>
+      </section>
+
+      <!-- Section 2: Output Section -->
+      <section class="section output-section">
+        <div class="section-header">
+          <span class="title">OUTPUT</span>
+          <div class="phase-selector" id="phaseSelector">
+            <button class="phase-btn active" data-phase="result">Result</button>
+            <button class="phase-btn" data-phase="tokens">Tokens</button>
+            <button class="phase-btn" data-phase="ast">AST</button>
+            <button class="phase-btn" data-phase="semantic">Semantic</button>
+            <button class="phase-btn" data-phase="symbols">Symbols</button>
+            <button class="phase-btn" data-phase="ml">ML</button>
+            <button class="phase-btn" data-phase="ir">IR</button>
+            <button class="phase-btn" data-phase="opt_ir">Optimized IR</button>
+            <button class="phase-btn" data-phase="execution">Execution</button>
+            <button class="phase-btn" data-phase="workflow">Workflow</button>
+          </div>
+        </div>
+
+        <div id="outputContainer" class="output-content">
+          <!-- Default View: Result Card -->
+          <div id="resultView" class="view-panel">
+            <div class="placeholder-msg">Click "Run" or "Workflow" to compile and execute program.</div>
+          </div>
+
+          <!-- Single Phase View -->
+          <div id="phaseView" class="view-panel hidden">
+            <pre id="phaseContent"></pre>
+          </div>
+
+          <!-- Workflow View -->
+          <div id="workflowView" class="view-panel hidden">
+            <div class="pipeline-container" id="pipelineFlow">
+              <!-- Dynamically rendered collapsible phases -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

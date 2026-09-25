@@ -1,0 +1,3 @@
+x = 25
+
+show sqrt(x)
